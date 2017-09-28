@@ -12,4 +12,3 @@ let sequelize = new Sequelize('toyrpg', 'root', '', {
   },
 
 });
-//s
