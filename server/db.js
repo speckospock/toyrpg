@@ -13,4 +13,22 @@ let sequelize = new Sequelize('toyrpg', 'root', '', {
 
 });
 
-//wooo!
+const Character = sequelize.define('character', {
+  name: Sequelize.STRING,
+  atk: Sequelize.INTEGER,
+  def: Sequelize.INTEGER,
+  hp: Sequelize.INTEGER
+});
+
+sequelize.sync()
+  .then(() => Character.create({
+    name: 'Malakar',
+    atk: 10,
+    def: 10,
+    hp: 100
+  }))
+  .then(malakar => {
+    console.log(malakar.get({
+      plain: true
+    }))
+  });
